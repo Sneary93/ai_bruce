@@ -5,6 +5,7 @@ from audiocraft.models import MusicGen
 from audiocraft.models import MultiBandDiffusion
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import os  # Import the os module for changing the directory
 
 from google.colab import drive
 drive.mount('/content/drive')
@@ -15,7 +16,7 @@ config.read(config_ini_location)
 openai_api_key = config['OpenAI']['API_KEY']
 
 # Change directory to the cloned repository
-%cd ai_bruce
+os.chdir('ai_bruce')
 
 # Pull the latest changes from GitHub (optional, in case changes were made outside Colab)
 !git pull origin main
@@ -25,8 +26,6 @@ csv_path = "/content/drive/MyDrive/Colab Notebooks/IS883/IS883 Project_Team1/Sle
 loader = CSVLoader(csv_path)
 data = loader.load()
 text_data = data[2].page_content
-
-
 
 # Spotify API credentials
 SPOTIPY_CLIENT_ID = '20dbe90b141f4177b3331613a262e24e'
