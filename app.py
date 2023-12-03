@@ -79,8 +79,4 @@ st.header("Spotify User Profile")
 user_profile = sp.current_user()
 st.write(user_profile)
 
-# After making changes to your Streamlit app, commit and push the changes to GitHub
-!git add app.py
-!git commit -m "Update app.py"
-!git push origin main
 
