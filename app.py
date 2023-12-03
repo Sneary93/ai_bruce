@@ -5,7 +5,8 @@ from audiocraft.models import MusicGen
 from audiocraft.models import MultiBandDiffusion
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-import os  # Import the os module for changing the directory
+import os
+import subprocess
 
 from google.colab import drive
 drive.mount('/content/drive')
@@ -19,7 +20,10 @@ openai_api_key = config['OpenAI']['API_KEY']
 os.chdir('ai_bruce')
 
 # Pull the latest changes from GitHub (optional, in case changes were made outside Colab)
-!git pull origin main
+subprocess.run(['git', 'pull', 'origin', 'main'])
+
+# # Pull the latest changes from GitHub (optional, in case changes were made outside Colab)
+# !git pull origin main
 
 # Load CSV file
 csv_path = "/content/drive/MyDrive/Colab Notebooks/IS883/IS883 Project_Team1/Sleep_health_and_lifestyle_dataset.csv"
